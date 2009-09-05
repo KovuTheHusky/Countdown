@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEventData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EventData>
+    <Name>Raivo Arrives</Name>
+    <Category>Events</Category>
+    <Created>2009-03-11T15:23:19.9922-04:00</Created>
+    <Time>2009-03-13T21:30:00</Time>
+  </EventData>
+</ArrayOfEventData>
