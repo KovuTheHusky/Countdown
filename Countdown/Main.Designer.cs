@@ -39,18 +39,16 @@
             this.lblDays = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ctxMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.miAddEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.miEditEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.miRemoveEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.miOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.miExit = new System.Windows.Forms.ToolStripMenuItem();
             this.niMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.lblName = new System.Windows.Forms.Label();
             this.tmrCycle = new System.Windows.Forms.Timer(this.components);
             this.ofdImporter = new System.Windows.Forms.OpenFileDialog();
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.miAddEvent = new System.Windows.Forms.ToolStripMenuItem();
-            this.miEditEvent = new System.Windows.Forms.ToolStripMenuItem();
-            this.miRemoveEvent = new System.Windows.Forms.ToolStripMenuItem();
-            this.miImportEvents = new System.Windows.Forms.ToolStripMenuItem();
-            this.miExportEvents = new System.Windows.Forms.ToolStripMenuItem();
-            this.miOptions = new System.Windows.Forms.ToolStripMenuItem();
-            this.miExit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
             this.sfdExporter = new System.Windows.Forms.SaveFileDialog();
@@ -151,15 +149,55 @@
             this.miAddEvent,
             this.miEditEvent,
             this.miRemoveEvent,
-            this.miImportEvents,
-            this.miExportEvents,
             this.miOptions,
             this.miExit});
             this.ctxMain.Name = "ctxMain";
             this.ctxMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ctxMain.Size = new System.Drawing.Size(150, 158);
+            this.ctxMain.Size = new System.Drawing.Size(153, 136);
             this.ctxMain.Opening += new System.ComponentModel.CancelEventHandler(this.ctxMain_Opening);
             this.ctxMain.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.ctxMain_Closing);
+            // 
+            // miAddEvent
+            // 
+            this.miAddEvent.Image = global::Countdown.Properties.Resources.Add;
+            this.miAddEvent.Name = "miAddEvent";
+            this.miAddEvent.Size = new System.Drawing.Size(152, 22);
+            this.miAddEvent.Text = "Add Event";
+            this.miAddEvent.Click += new System.EventHandler(this.miAddEvent_Click);
+            // 
+            // miEditEvent
+            // 
+            this.miEditEvent.Enabled = false;
+            this.miEditEvent.Image = global::Countdown.Properties.Resources.Edit;
+            this.miEditEvent.Name = "miEditEvent";
+            this.miEditEvent.Size = new System.Drawing.Size(152, 22);
+            this.miEditEvent.Text = "Edit Event";
+            this.miEditEvent.Click += new System.EventHandler(this.miEditEvent_Click);
+            // 
+            // miRemoveEvent
+            // 
+            this.miRemoveEvent.Enabled = false;
+            this.miRemoveEvent.Image = global::Countdown.Properties.Resources.Remove;
+            this.miRemoveEvent.Name = "miRemoveEvent";
+            this.miRemoveEvent.Size = new System.Drawing.Size(152, 22);
+            this.miRemoveEvent.Text = "Remove Event";
+            this.miRemoveEvent.Click += new System.EventHandler(this.miRemoveEvent_Click);
+            // 
+            // miOptions
+            // 
+            this.miOptions.Image = global::Countdown.Properties.Resources.Options;
+            this.miOptions.Name = "miOptions";
+            this.miOptions.Size = new System.Drawing.Size(152, 22);
+            this.miOptions.Text = "Options...";
+            this.miOptions.Click += new System.EventHandler(this.miOptions_Click);
+            // 
+            // miExit
+            // 
+            this.miExit.Image = global::Countdown.Properties.Resources.Exit;
+            this.miExit.Name = "miExit";
+            this.miExit.Size = new System.Drawing.Size(152, 22);
+            this.miExit.Text = "Exit";
+            this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
             // niMain
             // 
@@ -190,70 +228,11 @@
             // 
             this.ofdImporter.Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
             this.ofdImporter.Multiselect = true;
-            this.ofdImporter.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdImporter_FileOk);
             // 
             // tmrMain
             // 
             this.tmrMain.Enabled = true;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
-            // 
-            // miAddEvent
-            // 
-            this.miAddEvent.Image = global::Countdown.Properties.Resources.Add;
-            this.miAddEvent.Name = "miAddEvent";
-            this.miAddEvent.Size = new System.Drawing.Size(149, 22);
-            this.miAddEvent.Text = "Add Event";
-            this.miAddEvent.Click += new System.EventHandler(this.miAddEvent_Click);
-            // 
-            // miEditEvent
-            // 
-            this.miEditEvent.Enabled = false;
-            this.miEditEvent.Image = global::Countdown.Properties.Resources.Edit;
-            this.miEditEvent.Name = "miEditEvent";
-            this.miEditEvent.Size = new System.Drawing.Size(149, 22);
-            this.miEditEvent.Text = "Edit Event";
-            this.miEditEvent.Click += new System.EventHandler(this.miEditEvent_Click);
-            // 
-            // miRemoveEvent
-            // 
-            this.miRemoveEvent.Enabled = false;
-            this.miRemoveEvent.Image = global::Countdown.Properties.Resources.Remove;
-            this.miRemoveEvent.Name = "miRemoveEvent";
-            this.miRemoveEvent.Size = new System.Drawing.Size(149, 22);
-            this.miRemoveEvent.Text = "Remove Event";
-            this.miRemoveEvent.Click += new System.EventHandler(this.miRemoveEvent_Click);
-            // 
-            // miImportEvents
-            // 
-            this.miImportEvents.Image = global::Countdown.Properties.Resources.Import;
-            this.miImportEvents.Name = "miImportEvents";
-            this.miImportEvents.Size = new System.Drawing.Size(149, 22);
-            this.miImportEvents.Text = "Import Events";
-            this.miImportEvents.Click += new System.EventHandler(this.miImportEvents_Click);
-            // 
-            // miExportEvents
-            // 
-            this.miExportEvents.Image = global::Countdown.Properties.Resources.Export;
-            this.miExportEvents.Name = "miExportEvents";
-            this.miExportEvents.Size = new System.Drawing.Size(149, 22);
-            this.miExportEvents.Text = "Export Events";
-            this.miExportEvents.Click += new System.EventHandler(this.miExportEvents_Click);
-            // 
-            // miOptions
-            // 
-            this.miOptions.Image = global::Countdown.Properties.Resources.Options;
-            this.miOptions.Name = "miOptions";
-            this.miOptions.Size = new System.Drawing.Size(149, 22);
-            this.miOptions.Text = "Options...";
-            this.miOptions.Click += new System.EventHandler(this.miOptions_Click);
-            // 
-            // miExit
-            // 
-            this.miExit.Image = global::Countdown.Properties.Resources.Exit;
-            this.miExit.Name = "miExit";
-            this.miExit.Size = new System.Drawing.Size(149, 22);
-            this.miExit.Text = "Exit";
-            this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
             // btnNext
             // 
@@ -283,7 +262,6 @@
             // 
             this.sfdExporter.DefaultExt = "xml";
             this.sfdExporter.Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
-            this.sfdExporter.FileOk += new System.ComponentModel.CancelEventHandler(this.sfdExporter_FileOk);
             // 
             // Main
             // 
@@ -308,8 +286,6 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Countdown";
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Main_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Main_DragEnter);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.ctxMain.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -336,11 +312,9 @@
         private System.Windows.Forms.ToolStripMenuItem miRemoveEvent;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Timer tmrCycle;
-        private System.Windows.Forms.ToolStripMenuItem miImportEvents;
         private System.Windows.Forms.OpenFileDialog ofdImporter;
         private System.Windows.Forms.ToolStripMenuItem miEditEvent;
         private System.Windows.Forms.Timer tmrMain;
-        private System.Windows.Forms.ToolStripMenuItem miExportEvents;
         private System.Windows.Forms.SaveFileDialog sfdExporter;
 
     }

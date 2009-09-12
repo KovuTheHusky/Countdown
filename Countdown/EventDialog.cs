@@ -13,6 +13,7 @@ namespace Countdown
     public partial class EventDialog : Form
     {
         private EventData evt = null;
+        private EventData oldEvt = null;
 
         public EventData Event
         {
@@ -21,22 +22,20 @@ namespace Countdown
 
         public EventDialog(Main main) : this(main, EventData.Empty) { }
 
-        public EventDialog(Main main, EventData evt)
+        public EventDialog(Main main, EventData oldEvt)
         {
             InitializeComponent();
-            cboEventCategory.Items.AddRange(main.GetEventCategories());
-            txtEventName.Text = evt.Name;
-            cboEventCategory.Text = evt.Category;
-            dtpEventDate.Value = evt.Time.Date;
-            dtpEventTime.Value = evt.Time;
+            this.oldEvt = oldEvt;
+            txtEventName.Text = oldEvt.Name;
+            cboEventCategory.Text = oldEvt.Category;
+            dtpEventDate.Value = oldEvt.Time.Date;
+            dtpEventTime.Value = oldEvt.Time;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
             bool returnError = false;
-            lblName.ForeColor = Color.Black;
-            lblDate.ForeColor = Color.Black;
-            lblTime.ForeColor = Color.Black;
+            lblName.ForeColor = lblDate.ForeColor = lblTime.ForeColor = Color.Black;
             if (txtEventName.Text.Length < 1)
             {
                 lblName.ForeColor = Color.Red;

@@ -28,7 +28,7 @@ namespace Countdown
                 this.Visible = !(e.Cancel = true);
         }
 
-        private void Main_DragEnter(object sender, DragEventArgs e)
+        /*private void Main_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 e.Effect = DragDropEffects.Move;
@@ -49,7 +49,7 @@ namespace Countdown
                 }
             }
             GenericSerializer.SerializeXML<List<EventData>>("Events.xml", events);
-        }
+        }*/
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
@@ -74,12 +74,6 @@ namespace Countdown
             if (ed.DialogResult == DialogResult.OK)
             {
                 events.Add(ed.Event);
-                ed.Dispose();
-                ed = null;
-                tmrCycle.Enabled = false;
-                if (++index > events.Count - 1)
-                    index = 0;
-                tmrCycle.Enabled = prefs.Cycle.Enabled;
                 GenericSerializer.SerializeXML<List<EventData>>("Events.xml", events);
             }
         }
@@ -107,13 +101,13 @@ namespace Countdown
         {
             events.RemoveAt(index);
             tmrCycle.Enabled = false;
-            if (++index > events.Count - 1)
+            if (index > events.Count - 1)
                 index = 0;
             tmrCycle.Enabled = prefs.Cycle.Enabled;
             GenericSerializer.SerializeXML<List<EventData>>("Events.xml", events);
         }
 
-        private void miImportEvents_Click(object sender, EventArgs e)
+        /*private void miImportEvents_Click(object sender, EventArgs e)
         {
             ofdImporter.ShowDialog();
         }
@@ -153,7 +147,7 @@ namespace Countdown
         private void sfdExporter_FileOk(object sender, CancelEventArgs e)
         {
             File.Move("Events.tmp", sfdExporter.FileName);
-        }
+        }*/
 
         private void miOptions_Click(object sender, EventArgs e)
         {
@@ -223,10 +217,10 @@ namespace Countdown
             tmrCycle.Enabled = false;
             if (++index > events.Count - 1)
                 index = 0;
-            tmrCycle.Enabled = true;
+            tmrCycle.Enabled = prefs.Cycle.Enabled;
         }
 
-        public string[] GetEventNames()
+        /*public string[] GetEventNames()
         {
             List<string> ls = new List<string>();
             foreach (EventData evt in events)
@@ -246,6 +240,6 @@ namespace Countdown
                     ls.Add(evt.Category);
             }
             return ls.ToArray();
-        }
+        }*/
     }
 }

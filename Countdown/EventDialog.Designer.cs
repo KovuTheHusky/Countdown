@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventDialog));
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpEventTime = new System.Windows.Forms.DateTimePicker();
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -40,6 +39,7 @@
             this.lblEventCategory = new System.Windows.Forms.Label();
             this.cboEventCategory = new System.Windows.Forms.ComboBox();
             this.lblError = new System.Windows.Forms.Label();
+            this.dtpEventTime = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // dtpEventDate
@@ -50,17 +50,6 @@
             this.dtpEventDate.Size = new System.Drawing.Size(265, 20);
             this.dtpEventDate.TabIndex = 5;
             this.dtpEventDate.Value = new System.DateTime(2009, 3, 7, 0, 0, 0, 0);
-            // 
-            // dtpEventTime
-            // 
-            this.dtpEventTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpEventTime.Checked = false;
-            this.dtpEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEventTime.Location = new System.Drawing.Point(117, 91);
-            this.dtpEventTime.Name = "dtpEventTime";
-            this.dtpEventTime.ShowUpDown = true;
-            this.dtpEventTime.Size = new System.Drawing.Size(265, 20);
-            this.dtpEventTime.TabIndex = 7;
             // 
             // txtEventName
             // 
@@ -148,6 +137,16 @@
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 10;
             // 
+            // dtpEventTime
+            // 
+            this.dtpEventTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpEventTime.Location = new System.Drawing.Point(117, 91);
+            this.dtpEventTime.Name = "dtpEventTime";
+            this.dtpEventTime.Size = new System.Drawing.Size(265, 20);
+            this.dtpEventTime.TabIndex = 11;
+            this.dtpEventTime.Value = new System.DateTime(2009, 3, 7, 0, 0, 0, 0);
+            // 
             // EventDialog
             // 
             this.AcceptButton = this.btnOK;
@@ -155,6 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(394, 174);
+            this.Controls.Add(this.dtpEventTime);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.cboEventCategory);
             this.Controls.Add(this.lblEventCategory);
@@ -164,7 +164,6 @@
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtEventName);
-            this.Controls.Add(this.dtpEventTime);
             this.Controls.Add(this.dtpEventDate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -183,7 +182,6 @@
         #endregion
 
         private System.Windows.Forms.DateTimePicker dtpEventDate;
-        private System.Windows.Forms.DateTimePicker dtpEventTime;
         private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblDate;
@@ -193,5 +191,6 @@
         private System.Windows.Forms.Label lblEventCategory;
         private System.Windows.Forms.ComboBox cboEventCategory;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.DateTimePicker dtpEventTime;
     }
 }

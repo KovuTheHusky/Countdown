@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0A756C56-8FA7-4C32-8601-5566DFC0FDC7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -72,12 +72,6 @@
     <Compile Include="EventDialog.Designer.cs">
       <DependentUpon>EventDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExportDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ExportDialog.Designer.cs">
-      <DependentUpon>ExportDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="GenericExceptions.cs" />
     <Compile Include="Main.cs">
@@ -98,9 +92,6 @@
     <EmbeddedResource Include="EventDialog.resx">
       <DependentUpon>EventDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExportDialog.resx">
-      <DependentUpon>ExportDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -130,8 +121,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings\Cycle.cs" />
-    <Compile Include="Settings\Notification.cs" />
-    <Compile Include="Settings\NotificationMethod.cs" />
     <Compile Include="Settings\Preferences.cs" />
     <Compile Include="Settings\Startup.cs" />
     <Compile Include="Settings\StartupMethod.cs" />

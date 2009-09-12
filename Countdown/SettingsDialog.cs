@@ -20,20 +20,6 @@ namespace Countdown
         {
             InitializeComponent();
             this.prefs = preferences;
-            txtNotifyTitle.Text = preferences.Notification.Title;
-            txtNotifyBody.Lines = preferences.Notification.Body;
-            switch (preferences.Notification.Method)
-            {
-                case NotificationMethod.Balloon:
-                    radNotificationMethodBalloons.Checked = true;
-                    break;
-                case NotificationMethod.Dialog:
-                    radNotificationMethodDialogs.Checked = true;
-                    break;
-                case NotificationMethod.Conditional:
-                    radNotificationMethodConditional.Checked = true;
-                    break;
-            }
             switch (preferences.Startup.Method)
             {
                 case StartupMethod.Maximized:
@@ -53,14 +39,6 @@ namespace Countdown
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            prefs.Notification.Title = txtNotifyTitle.Text;
-            prefs.Notification.Body = txtNotifyBody.Lines;
-            if (radNotificationMethodBalloons.Checked)
-                prefs.Notification.Method = NotificationMethod.Balloon;
-            else if (radNotificationMethodDialogs.Checked)
-                prefs.Notification.Method = NotificationMethod.Dialog;
-            else
-                prefs.Notification.Method = NotificationMethod.Conditional;
             if (radStartupMaximized.Checked)
                 prefs.Startup.Method = StartupMethod.Maximized;
             else if (radStartupMinimized.Checked)
